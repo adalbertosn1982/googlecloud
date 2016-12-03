@@ -1,0 +1,12 @@
+/****** Script do comando SelectTopNRows de SSMS  ******/
+SELECT TOP (1000) [aluno]
+      ,[disciplina]
+
+      ,[turma]
+      ,[ano]
+      ,[semestre]
+      ,[sit_detalhe]
+
+      ,[NOME_DISCIPLINA]
+  FROM [AVA].[dbo].[MOODLE_INTEGRACAO_AVA_DISCIPLINA]
+
