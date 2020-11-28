@@ -12,5 +12,12 @@ define("controler_inicial",'/controlers/controler_inicial.php');
 
 // header("Location: http://$host$uri/$extra");
 
-include_once dir_server.controler_inicial; 
+
+if(!isset($controler) && !isset($accion)){
+	$controler="atualizar_historico_diciplina";
+	include_once dir_server."/conecao.php"; 
+	include_once dir_server.controler_inicial;
+}
+
+
 ?>

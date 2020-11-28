@@ -46,66 +46,122 @@
           <!-- <button type="button" class="btn btn-sm btn-default">Default</button>-->
 
           <div class="pull-right">
-            <!-- <button type="button" class="btn btn-primary">Atualizar</button>  -->
+          
+            <!-- class="pull-right" 
+            <button type="button" class="btn btn-primary">Atualizar</button>  -->
             <button type="button" class="btn btn-warning">Atualizar</button>
           </div>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th  colspan="2">Ano / Módulo 1</th>
-                <!--
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-                -->
-              </tr>
-            </thead>
+          <?php
+
             
-            <tbody>
-              <tr>
-                <td>Nome da disciplina</td>
-                <td>Detalhe</td>
-              </tr>
-              <tr rowspan="2">
-                <td> >> NOME DA DISCIPLINA 1 </br> >> NOME DA DISCIPLINA 1 </td>
-                <td> Adaptação </br> Adaptação</td>
-              </tr>
-              
-            </tbody>
+            $ano=0;
+            $semestre=0;
+            $cad_imprimir='';
+            $arr_disciplinas =array();
+            $arr_sit_detalhes =array();
 
-            <thead>
-              <tr>
-                <th  colspan="2">Ano / Módulo 2</th>
-                <!--
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
-                -->
-              </tr>
-            </thead>
-            
-            <tbody>
-              <tr>
-                <td>Nome da disciplina</td>
-                <td>Detalhe</td>
-              </tr>
-              <tr rowspan="2">
-                <td> >> NOME DA DISCIPLINA 1 </br> >> NOME DA DISCIPLINA 1 </td>
-                <td> Adaptação </br> Adaptação</td>
-              </tr>
-              
-            </tbody>
+            if($result->rowCount() > 0){
+
+                  $cad_imprimir.="<table class='table table-bordered'>";
+          
+
+                  foreach($result as $row) {
+                   
+                          if($ano != $row['ano'] || $semestre != $row['semestre']){
 
 
-          </table>
+                              if(count($arr_disciplinas)>0){
+
+                                  foreach($arr_disciplinas as $row_dic) {
+                                      $cad_imprimir.=$row_dic."</br>";
+                                    
+                                  }  
+                                    $cad_imprimir.="
+                                     </td>
+                                     <td>
+                                     ";
+
+                                  foreach($arr_sit_detalhes as $row_sit_det) {
+                                      $cad_imprimir.=$row_sit_det."</br>";
+                                    
+                                  }   
+                                  $cad_imprimir.="
+                                         </td>   
+                                      </tr>
+                                    </tbody>
+                                    ";
+                                  unset($arr_disciplinas);
+                                  unset($arr_sit_detalhes);
+                                  $arr_disciplinas=array();
+                                  $arr_sit_detalhes=array();
+                                  //continue();
+                              }
+
+                              $cad_imprimir.= 
+                                '<thead>
+                                  <tr>
+                                    <th  colspan="2">Ano:'.$row['ano']."/ Módulo: ".$row['semestre'].'</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>Nome da disciplina</td>
+                                    <td>Detalhe</td>
+                                  </tr>
+                                  <tr rowspan="2">
+                                     <td>';
+
+                                     $arr_disciplinas[]=utf8_encode($row['NOME_DISCIPLINA']);
+                                     $arr_sit_detalhes[]= utf8_encode($row['sit_detalhe']);
+                                     $ano = $row['ano'];
+                                     $semestre = $row['semestre'];
+
+                            }else{
+                                     $arr_disciplinas[]=utf8_encode($row['NOME_DISCIPLINA']);
+                                     $arr_sit_detalhes[]= utf8_encode($row['sit_detalhe']);
+                                     //$ano = $row['ano'];
+                                     //$semestre = $row['semestre']; 
+
+                            }          
+                   
+                    }
+
+                    if(count($arr_disciplinas)>0){
+
+                      foreach($arr_disciplinas as $row_dic) {
+                          $cad_imprimir.=$row_dic."</br>";
+                        
+                      }  
+                        $cad_imprimir.="
+                         </td>
+                         <td>
+                         ";
+
+                      foreach($arr_sit_detalhes as $row_sit_det) {
+                          $cad_imprimir.=$row_sit_det."</br>";
+                        
+                      }   
+                      $cad_imprimir.="
+                             </td>   
+                          </tr>
+                        </tbody>
+                        ";
+                      unset($arr_disciplinas);
+                      unset($arr_sit_detalhes);
+                      $arr_disciplinas=array();
+                      $arr_sit_detalhes=array();
+                  }
+
+                    $cad_imprimir.="</table>";
+             }else{
+                $cad_imprimir.="Não existen Dados. Click no botão Atualizar";
+             } 
+
+             echo $cad_imprimir;
+
+        ?> 
+          
         </div>
-
-        <!-- Table 
-        <table class="table">
-          ...
-        </table>
-        -->
-        
      </div>
 
 

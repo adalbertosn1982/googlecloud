@@ -10,3 +10,30 @@ SELECT TOP (1000) [aluno]
       ,[NOME_DISCIPLINA]
   FROM [AVA].[dbo].[MOODLE_INTEGRACAO_AVA_DISCIPLINA]
 
+
+SELECT DISTINCT ano,semestre,NOME_DISCIPLINA,sit_detalhe 
+FROM disciplina 
+order by semestre,NOME_DISCIPLINA
+
+SELECT DISTINCT ano,semestre 
+FROM disciplina 
+order by ano,semestre
+
+SELECT DISTINCT ano,semestre,NOME_DISCIPLINA,sit_detalhe FROM disciplina order by semestre,NOME_DISCIPLINA
+
+SELECT TOP (1000) DISTINCT [ano]
+      ,[semestre]
+      ,[NOME_DISCIPLINA]
+      ,[sit_detalhe]
+  FROM [AVA].[dbo].[MOODLE_INTEGRACAO_AVA_DISCIPLINA]
+  ORDER BY [semestre],[NOME_DISCIPLINA]
+
+
+SELECT DISTINCT [ano]
+      ,[semestre]
+      ,[NOME_DISCIPLINA]
+      ,[sit_detalhe]
+  FROM [AVA].[dbo].[MOODLE_INTEGRACAO_AVA_DISCIPLINA]
+  ORDER BY [semestre],[NOME_DISCIPLINA]
+  LIMIT 1000	
+

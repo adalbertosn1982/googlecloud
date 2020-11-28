@@ -1,0 +1,24 @@
+Curso SGBD
+https://www.techonthenet.com/sql/select_limit.php
+http://www.w3schools.com/sql/sql_select_into.asp
+https://msdn.microsoft.com/pt-br/library/ms130214.aspx
+https://technet.microsoft.com/pt-br/library/ms130214(v=sql.105).aspx
+libro okok sql server 2016
+https://www.microsoft.com/pt-br/server-cloud/products/sql-server/default.aspx
+
+pdo php sqlserver
+https://www.phparch.com/wp-content/uploads/2010/11/PDO__MSSQLServer.pdf
+http://www.php.net/manual/en/ref.pdo-dblib.php
+https://secure.php.net/manual/pt_BR/pdo.query.php
+http://php.net/manual/pt_BR/pdostatement.rowcount.php
+http://www.diogomatheus.com.br/blog/php/trabalhando-com-pdo-no-php/
+http://ctncardoso.com.br/blog/2011/02/consultas-sql-utilizando-pdo-php-data-objects/
+http://www.w3schools.com/php/php_mysql_select.asp
+
+
+http://php.net/manual/pt_BR/ref.pdo-dblib.php
+http://php.net/manual/pt_BR/book.pdo.php
+
+
+apostila sql
+https://sistemas.riopomba.ifsudestemg.edu.br/dcc/materiais/833034638_apostila-sql.PDF
